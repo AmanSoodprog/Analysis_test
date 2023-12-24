@@ -17,7 +17,7 @@ def index():
     return render_template('index.html')
 
 @app.route('/login')
-def index():
+def logins():
     return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
