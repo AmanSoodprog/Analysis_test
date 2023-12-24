@@ -16,6 +16,10 @@ redis_client = redis.StrictRedis(
 def index():
     return render_template('index.html')
 
+@app.route('/login')
+def index():
+    return render_template('index.html')
+
 @app.route('/predict', methods=['POST'])
 def predict():
         stock_symbol = request.form['stock_symbol']
