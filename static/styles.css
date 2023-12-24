@@ -81,9 +81,11 @@ button:hover {
 .company-name {
     display: inline-block;
     color: white;
-    padding: 12px 14px;
+    padding: 10px 14px;
     text-decoration: none;
-    text-align: center;
+    font:status-bar;
+    font-size:large;
+    font-style:oblique;
     position: absolute;
             left: 50%;
             transform: translateX(-50%);
