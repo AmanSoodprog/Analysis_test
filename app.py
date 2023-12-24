@@ -23,7 +23,8 @@ def predict():
         output= TA_Handler(symbol=stock_symbol, screener="India",exchange="NSE",interval="15m")
         indicator_data=output.get_analysis().summary
         prediction = indicator_data
-        return render_template('result.html', prediction=prediction)
+        indicators=output.get_analysis().indicators
+        return render_template('result.html', prediction=prediction,indicators=indicators)
     
 @app.route('/scan', methods=['POST'])
 def scan():

@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Prediction App</title>
+    <title>SnapStock</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Stock Analysis</h1>
+        <!-- Load an icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="navbar">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+        </div>
+    <h1>Instant Analysis by SnapStock</h1>
     <form action="/predict" method="post">
         <label for="stock_symbol">Enter Stock Symbol:</label>
         <input type="text" id="stock_symbol" name="stock_symbol" required>
-        <button type="submit">Predict</button>
-    </form>
-    <form action="/scan" method="post">
-        <button type="submit">scan</button>
+        <button type="submit">Check</button>
     </form>
 </body>
 </html>
