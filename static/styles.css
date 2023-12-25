@@ -99,3 +99,15 @@ html {
   overflow-x: hidden;
   margin-right: calc(-1 * (100vw - 100%));
 } */
+
+/* Importing Google font - Open Sans */
+#footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  /* Height of the footer*/
+  height: 20px;
+  background: #04AA6D;
+}
