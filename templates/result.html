@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Analysis Result</title>
+    <title>SnapStock</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <div class="navbar">
-    <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
-    <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-    </div>
-    <h1>Indicators State</h1>
+        <!-- Load an icon library -->
+        <div class="navbar">
+            <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+            <!-- Add your company name here -->
+            <span class="company-name">SnapStocks</span>
+        </div>
+        <h1>Quick Analysis</h1>
+        <form action="/predict" method="post" >
+            <input type="text" placeholder="Enter Security Symbol" id="stock_symbol" name="stock_symbol" required>
+            <button type="submit">Check</button>
+    </form>
+
     {% if prediction %}
     <div style="text-align: center;">
         <p>Buy: {{ prediction['BUY'] }}</p>
@@ -36,6 +43,5 @@
     {% elif error %}
         <p>{{ error }}</p>
     {% endif %}
-</div>
 </body>
 </html>
