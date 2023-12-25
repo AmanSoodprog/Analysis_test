@@ -41,14 +41,24 @@
     </div>
 {% endif %}
 
-    {% if indicators %}
+{% if indicators %}
     <h1>Indicators values</h1>
     <div style="text-align: center;">
     
-        {% for key, value in indicators.items() %}
-            <strong>{{ key }}:</strong> {{ value }}
-            <br></br>
-        {% endfor %}
+        <p>RSI: {{ indicators['RSI']}}</p>
+     
+        <p>Volume: {{ indicators['volume']}}</p>
+      
+        <p>SMA50: {{ indicators['SMA50']}}</p>
+     
+       <p>SMA100: {{ indicators['SMA100']}}</p>
+   
+       <p>EMA50: {{ indicators['EMA50']}}</p>
+
+       <p>EMA100: {{ indicators['EMA100']}}</p>
+ 
+       
+
     {% elif error %}
         <p>{{ error }}</p>
     {% endif %}
