@@ -21,11 +21,20 @@
     </form>
 
     {% if prediction %}
-    <div style="text-align: center;">
-        <p>Buy: {{ prediction['BUY'] }}</p>
-        <p>Sell: {{ prediction['SELL'] }}</p>
-        <p>Neutral: {{ prediction['NEUTRAL'] }}</p>
+    <div class="container">
+    <div class="status-container" style="align-items="center"">
+        <div class="status buy">
+          <span>Buy: {{ prediction['BUY'] }}</span>
+        </div>
+        <div class="status sell">
+          <span>Sell: {{ prediction['SELL'] }}</span>
+        </div>
+        <div class="status neutral">
+          <span>Neutral: {{ prediction['NEUTRAL'] }}</span>
+        </div>
+      </div>
     </div>
+   
 {% elif error %}
     <div style="text-align: center;">
         <p>{{ error }}</p>
@@ -44,7 +53,7 @@
         <p>{{ error }}</p>
     {% endif %}
     <div id="footer">
-        © 2023 SnapStocks | Developed and maintained by Aman Sood
+        © 2023 SnapStocks | Developed by Aman Sood
     </div>
 </body>
 </html>

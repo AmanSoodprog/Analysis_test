@@ -111,3 +111,38 @@ html {
   height: 20px;
   background: #04AA6D;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  align-items: center;
+}
+.status-container {
+  display: flex;
+  align-items: center;
+}
+
+.status {
+  padding:22px; /* Adjust the padding to make it bigger */
+  margin: 10px; /* Adjust the margin for spacing */
+  border-radius: 8px; /* Adjust the border radius for rounded corners */
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px; /* Adjust the font size to make it bigger */
+}
+
+.buy {
+  background-color: lightgreen;
+  color: #333; /* Adjust text color for better contrast */
+}
+
+.sell {
+  background-color: lightcoral;
+  color: #333; /* Adjust text color for better contrast */
+}
+
+.neutral {
+  background-color: lightgrey;
+  color: #333; /* Adjust text color for better contrast */
+}
