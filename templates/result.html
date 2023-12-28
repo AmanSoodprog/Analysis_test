@@ -32,12 +32,12 @@
     <div class="container">
         <div class="status-container" style="align-items="center"">
         <div class="status buy">
-          <span>Buy: {{ prediction['CLOSE'] }}</span>
+          <span>Buy: {{ prediction['BUY'] }}</span>
         </div>
         <div class="status sell">
             <span>Sell: {{ prediction['SELL'] }}</span>
         </div>
-        <div class="status neutral">
+        <div class="status neutral1">
           <span>Neutral: {{ prediction['NEUTRAL'] }}</span>
         </div>
     </div>
@@ -52,21 +52,32 @@
 {% if indicators %}
     <h1>Indicators values</h1>
     <div class="container">
-        <div class="status neutral">
+        <div class="status1 neutral">
             <span>RSI: {{ indicators['RSI']}}</span>
+        </div>
+        <div class="status1 neutral">
             <span>Volume: {{ indicators['volume']}}</span>
         </div>
-        <br></br>
-        <div class="status neutral">
+    </div>
+  
+    <div class="container">
+        <div class="status1 neutral">
             <span>SMA50: {{ indicators['SMA50']}}</span>
+        </div>
+        <div class="status1 neutral">
             <span>SMA100: {{ indicators['SMA100']}}</span>
         </div>
-        <br></br>
-        <div class="status neutral">
+    </div>
+  
+    <div class="container">
+        <div class="status1 neutral">
             <span>EMA50: {{ indicators['EMA50']}}</span>
-           <span>EMA100: {{ indicators['EMA100']}}</span>
         </div>
-           <br></br>
+        <div class="status1 neutral">
+            <span>EMA100: {{ indicators['EMA100']}}</span>
+        </div>
+    </div>
+  
         
     </div>
     

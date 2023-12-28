@@ -117,6 +117,7 @@ html {
   justify-content: center;
   padding-top: 15px;
   align-items: center;
+  
 }
 .status-container {
   display: flex;
@@ -130,6 +131,17 @@ html {
   text-align: center;
   font-weight: bold;
   font-size: 20px; /* Adjust the font size to make it bigger */
+
+}
+.status1 {
+  padding:22px; /* Adjust the padding to make it bigger */
+  margin: 5px; /* Adjust the margin for spacing */
+  border-radius: 8px; /* Adjust the border radius for rounded corners */
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px; /* Adjust the font size to make it bigger */
+  width: 100%;
+    height: 30px;
 }
 
 .buy {
@@ -143,6 +155,11 @@ html {
 }
 
 .neutral {
-  background-color: lightgrey;
+  background-color: #a1e17f;
+  color: #333; /* Adjust text color for better contrast */
+}
+
+.neutral1 {
+  background-color: lightgray;
   color: #333; /* Adjust text color for better contrast */
 }
