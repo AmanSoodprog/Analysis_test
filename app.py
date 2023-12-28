@@ -19,6 +19,9 @@ def index():
 @app.route('/login')
 def logins():
     return render_template('index.html')
+    if False:
+        return
+         
 
 @app.route('/predict', methods=['POST'])
 def predict():
