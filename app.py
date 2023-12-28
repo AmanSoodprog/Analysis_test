@@ -29,11 +29,11 @@ def predict():
         indicator_data=output.get_analysis().summary
         prediction = indicator_data
         indicators=output.get_analysis().indicators
-        indicators['SMA50'] = "{:.3f}".format(indicators['SMA50'])
-        indicators['SMA200'] = "{:.3f}".format(indicators['SMA200'])
-        indicators['EMA50'] = "{:.3f}".format(indicators['EMA50'])
-        indicators['EMA200'] = "{:.3f}".format(indicators['EMA200'])
-        indicators['RSI'] = "{:.3f}".format(indicators['RSI'])
+        indicators['SMA50'] = "{:.2f}".format(indicators['SMA50'])
+        indicators['SMA200'] = "{:.2f}".format(indicators['SMA200'])
+        indicators['EMA50'] = "{:.2f}".format(indicators['EMA50'])
+        indicators['EMA200'] = "{:.2f}".format(indicators['EMA200'])
+        indicators['RSI'] = "{:.2f}".format(indicators['RSI'])
 
         return render_template('result.html', prediction=prediction,indicators=indicators)
     
