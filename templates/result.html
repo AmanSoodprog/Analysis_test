@@ -23,8 +23,8 @@
     </form>
     {% if indicators %}
     <div class="container">
-        <div class="status-container" style="align-items="center"">
-   <span>LTP: {{indicators['close']}}</span>
+        <div class="ltp" style="align-items="center"">
+   <span>{{symbol}}: {{indicators['close']}}</span>
 </div>
 </div>
    {% endif %}

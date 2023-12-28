@@ -163,3 +163,9 @@ html {
   background-color: lightgray;
   color: #333; /* Adjust text color for better contrast */
 }
+.ltp {
+  font-size: x-large;
+  font: bold;
+  padding-top: 10px;
+  color: #333; /* Adjust text color for better contrast */
+}
