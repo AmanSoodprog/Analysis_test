@@ -19,9 +19,7 @@ def index():
 @app.route('/login')
 def logins():
     return render_template('index.html')
-    if False:
-        return
-         
+     
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -31,6 +29,12 @@ def predict():
         indicator_data=output.get_analysis().summary
         prediction = indicator_data
         indicators=output.get_analysis().indicators
+        indicators['SMA50'] = "{:.3f}".format(indicators['SMA50'])
+        indicators['SMA200'] = "{:.3f}".format(indicators['SMA200'])
+        indicators['EMA50'] = "{:.3f}".format(indicators['EMA50'])
+        indicators['EMA200'] = "{:.3f}".format(indicators['EMA200'])
+        indicators['RSI'] = "{:.3f}".format(indicators['RSI'])
+
         return render_template('result.html', prediction=prediction,indicators=indicators)
     
 @app.route('/scan', methods=['POST'])
