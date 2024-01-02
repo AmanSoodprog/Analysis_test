@@ -3,6 +3,8 @@ import requests
 from tradingview_ta import TA_Handler, Interval
 import redis
 
+from jugaad_data.nse import NSELive
+
 app = Flask(__name__)
 
 redis_host = 'redis-10435.c321.us-east-1-2.ec2.cloud.redislabs.com'
@@ -24,7 +26,9 @@ def logins():
 @app.route('/predict', methods=['POST'])
 def predict():
         stock_symbol = request.form['stock_symbol']
-        
+        n = NSELive()
+        q = n.stock_quote(stock_symbol)
+        print(q['priceInfo'])
         output= TA_Handler(symbol=stock_symbol, screener="India",exchange="NSE",interval="15m")
         indicator_data=output.get_analysis().summary
         prediction = indicator_data
@@ -35,7 +39,7 @@ def predict():
         indicators['EMA200'] = "{:.2f}".format(indicators['EMA200'])
         indicators['RSI'] = "{:.2f}".format(indicators['RSI'])
 
-        return render_template('result.html', prediction=prediction,indicators=indicators,symbol=stock_symbol)
+        return render_template('result.html', prediction=prediction,indicators=indicators,symbol=stock_symbol,ltp=q['priceInfo']['lastPrice'])
     
 @app.route('/scan', methods=['POST'])
 def scan():

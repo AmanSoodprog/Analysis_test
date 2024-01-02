@@ -14,17 +14,17 @@
             <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
             <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
             <!-- Add your company name here -->
-            <span class="company-name">SnapStocks</span>
+            <a href="/" class="company-name">SnapStocks</a>
         </div>
         <h1>Quick Analysis</h1>
         <form action="/predict" method="post" >
             <input type="text" placeholder="Enter Security Symbol" id="stock_symbol" name="stock_symbol" required>
             <button type="submit">Check</button>
     </form>
-    {% if indicators %}
+    {% if ltp %}
     <div class="container">
         <div class="ltp" style="align-items="center"">
-   <span>{{symbol}} {{indicators['close']}}</span>
+   <span>{{symbol}} {{ltp}}</span>
 </div>
 </div>
    {% endif %}
