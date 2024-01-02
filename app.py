@@ -38,7 +38,7 @@ def predict():
         indicators['EMA50'] = "{:.2f}".format(indicators['EMA50'])
         indicators['EMA200'] = "{:.2f}".format(indicators['EMA200'])
         indicators['RSI'] = "{:.2f}".format(indicators['RSI'])
-
+        #test
         return render_template('result.html', prediction=prediction,indicators=indicators,symbol=stock_symbol,ltp=q['priceInfo']['lastPrice'])
     
 @app.route('/scan', methods=['POST'])
