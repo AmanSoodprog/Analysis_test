@@ -21,10 +21,10 @@
             <input type="text" placeholder="Enter Security Symbol" id="stock_symbol" name="stock_symbol" required>
             <button type="submit">Check</button>
     </form>
-    {% if ltp %}
+    {% if indicators %}
     <div class="container">
         <div class="ltp" style="align-items="center"">
-   <span>{{symbol}} {{ltp}}</span>
+   <span>{{symbol}} {{indicators['close']}}</span>
 </div>
 </div>
    {% endif %}
