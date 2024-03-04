@@ -2,9 +2,18 @@ from flask import Flask, render_template, request
 import requests
 from tradingview_ta import TA_Handler, Interval
 import redis
-
+from pymongo import MongoClient
+from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash
+from flask import session
 
 app = Flask(__name__)
+
+app.secret_key = 'uh3di2gf92fufb2u2393n9nc'
+
+client = MongoClient('mongodb+srv://Pixel:Pixel7788@cluster0.3dpfxx3.mongodb.net/')
+db = client['SnapStocks']
+users = db['users']
 
 redis_host = 'redis-10435.c321.us-east-1-2.ec2.cloud.redislabs.com'
 redis_port = 10435
@@ -17,10 +26,28 @@ redis_client = redis.StrictRedis(
 def index():
     return render_template('index.html')
 
-@app.route('/login')
+
+
+
+
+@app.route('/login', methods=['GET','POST'])
 def logins():
-    return render_template('index.html')
-     
+    if(request.method == 'POST'):
+        username = request.form['username']
+        password = request.form['password']
+
+        # Fetch the user from the database
+        user = users.find_one({'username': username})
+
+        # If the user exists and the password is correct
+        if user and check_password_hash(user['password'], password):
+            # Log the user in by setting a session variable
+            session['logged_in'] = True
+            session['username'] = username
+            return render_template('login.html')
+        else:
+            return 'Invalid username or password'
+    return render_template('login.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -35,8 +62,13 @@ def predict():
         indicators['EMA50'] = "{:.2f}".format(indicators['EMA50'])
         indicators['EMA200'] = "{:.2f}".format(indicators['EMA200'])
         indicators['RSI'] = "{:.2f}".format(indicators['RSI'])
+        li=""
+        if 'logged_in' in session:
+            li="Yes"
+        else:
+            li="No"
         #test
-        return render_template('result.html', prediction=prediction,indicators=indicators,symbol=stock_symbol)
+        return render_template('result.html', prediction=prediction,indicators=indicators,symbol=stock_symbol,li=li)
     
 @app.route('/scan', methods=['POST'])
 def scan():
